@@ -1,10 +1,11 @@
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
+  const accessToken = getCookie(event, "accessToken");
+  console.log("accessToken :>> ", accessToken);
   const { apiUrl, apiKey } = useRuntimeConfig();
 
-  return await $fetch.raw(`${apiUrl}/users/profile`, {
+  return await $fetch(`${apiUrl}/users/profile`, {
     headers: {
       "x-api-key": apiKey,
     },
-    credentials: "include",
   });
 });

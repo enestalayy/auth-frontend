@@ -14,6 +14,8 @@ export default defineEventHandler(async (event) => {
   for (const cookie of cookies) {
     appendResponseHeader(event, "set-cookie", cookie);
   }
+  let accessToken = getCookie(event, "accessToken");
+  console.log("accessToken :>> ", accessToken);
   return response._data;
 });
 // export default defineEventHandler(async (event) => {
