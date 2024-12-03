@@ -6,7 +6,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   // Benzersiz ID'yi al
   const fingerprint = await fp.get();
-
+  console.log("PLUGİN ÇALIŞTI", fingerprint);
   // Fingerprint'i global bir yardımcı fonksiyon olarak kullanıma sun
   nuxtApp.provide("fingerprint", fingerprint);
 });

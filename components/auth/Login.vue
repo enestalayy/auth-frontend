@@ -126,10 +126,10 @@ console.log("Tüm çerezler:", cookies.value);
           </button>
           <p class="text-gray-800 text-sm text-center mt-6">
             Don't have an account
-            <a
-              href="/auth/signup"
+            <NuxtLink
+              to="/auth/signup"
               class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap"
-              >Register here</a
+              >Register here</NuxtLink
             >
           </p>
         </div>

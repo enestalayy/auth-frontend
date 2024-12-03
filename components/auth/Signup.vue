@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col justify-center font-[sans-serif] p-4"
+    class="flex flex-col justify-center font-[sans-serif] min-h-screen p-4"
     style="
       background-image: url('/pxfuel.jpg');
       background-repeat: no-repeat;
@@ -162,10 +162,10 @@
         </div>
         <p class="text-sm mt-8 text-center text-gray-800">
           Already have an account?
-          <a
-            href="/auth"
+          <NuxtLink
+            to="/auth"
             class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap"
-            >Login here</a
+            >Login here</NuxtLink
           >
         </p>
       </form>

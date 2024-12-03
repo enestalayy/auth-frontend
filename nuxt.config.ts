@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     ["@pinia/nuxt", { autoImports: ["defineStore", "acceptHMRUpdate"] }],
   ],
-  plugins: ["~/plugins/fingerprint.client.ts"],
+  plugins: ["~/plugins/fingerprint.client.ts", "~/plugins/init.server.ts"],
   runtimeConfig: {
     apiUrl: process.env.API_URL,
     apiKey: process.env.API_KEY,
