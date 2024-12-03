@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
   return await $fetch(`${apiUrl}/users/profile`, {
     headers: {
       "x-api-key": apiKey,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
 });
