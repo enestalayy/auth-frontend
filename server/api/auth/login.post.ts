@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
   const { apiUrl, apiKey } = useRuntimeConfig();
   const body = await readBody(event);
 
-  const response = await $fetch(`${apiUrl}/auth/login`, {
+  const response = await $fetch.raw(`${apiUrl}/auth/login`, {
     method: "POST",
     headers: {
       "x-api-key": apiKey,
