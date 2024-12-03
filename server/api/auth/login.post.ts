@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
   const { apiUrl, apiKey } = useRuntimeConfig();
   const body = await readBody(event);
 
-  return await $fetch(`${apiUrl}/auth/login`, {
+  const zort = await $fetch(`${apiUrl}/auth/login`, {
     method: "POST",
     headers: {
       "x-api-key": apiKey,
@@ -10,4 +10,6 @@ export default defineEventHandler(async (event) => {
     credentials: "include",
     body,
   });
+  console.log("zort :>> ", zort);
+  return zort;
 });
