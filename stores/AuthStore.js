@@ -34,7 +34,6 @@ export const useAuthStore = defineStore("auth", {
       try {
         const { data, error } = await useFetch("/api/auth/login", {
           method: "POST",
-          credentials: "include",
           body: payload,
         });
         return { data, error };
@@ -46,7 +45,16 @@ export const useAuthStore = defineStore("auth", {
       try {
         const { data, error } = await useFetch("/api/users/profile", {
           method: "GET",
-          credentials: "include", // Cookie'leri otomatik gönder
+        });
+        return { data, error };
+      } catch (error) {
+        throw error;
+      }
+    },
+    async getCookie() {
+      try {
+        const { data, error } = await useFetch("/api/users/cookie", {
+          method: "GET",
         });
         return { data, error };
       } catch (error) {

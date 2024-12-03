@@ -1,3 +1,12 @@
+<script setup>
+const accessToken = useCookie();
+
+console.log("accessToken :>> ", accessToken);
+
+const cookies = ref("");
+cookies.value = document?.cookie; // Tarayıcıdaki tüm çerezleri alır
+console.log("Tüm çerezler:", cookies.value);
+</script>
 <template>
   <div
     class="flex justify-center items-center font-[sans-serif] h-full min-h-screen p-4"
@@ -14,6 +23,7 @@
       >
         <div class="mb-12">
           <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
+          <button @click="getCookie">Get Cookie</button>
         </div>
 
         <div>
@@ -209,7 +219,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(useAuthStore, ["login"]),
+    ...mapActions(useAuthStore, ["login", "getCookie"]),
     async handleLogin() {
       const userData = {
         email: this.email,

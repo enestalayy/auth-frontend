@@ -14,37 +14,14 @@ export default defineEventHandler(async (event) => {
   for (const cookie of cookies) {
     appendResponseHeader(event, "set-cookie", cookie);
   }
-  let accessToken = getCookie(event, "accessToken");
+  const accessToken = getCookie(event, "accessToken");
   console.log("accessToken :>> ", accessToken);
+  const resfreshToken = getCookie(event, "resfreshToken");
+  console.log("resfreshToken :>> ", resfreshToken);
+
+  setCookie(event, "counter", "TESTSSS");
+  const counter = getCookie(event, "counter");
+  console.log("counter :>> ", counter);
+
   return response._data;
 });
-// export default defineEventHandler(async (event) => {
-//   const { apiUrl, apiKey } = useRuntimeConfig();
-//   const body = await readBody(event);
-
-//   // $fetch.raw ile tam yanıt alın
-//   const response = await $fetch.raw(`${apiUrl}/auth/login`, {
-//     method: "POST",
-//     headers: {
-//       "x-api-key": apiKey,
-//     },
-//     credentials: "include",
-//     body,
-//   });
-
-//   // Yanıt başlıklarını loglayın
-//   console.log("Response Headers:", response.headers);
-//   const cookies = response.headers.getSetCookie();
-
-//   // Set-Cookie başlığını alın
-//   console.log("Set-Cookie:", cookies);
-//   for (const cookie of cookies) {
-//     appendResponseHeader(event, "set-cookie", cookie);
-//   }
-
-//   // Gerekirse yanıt verilerini döndürün
-//   return {
-//     data: response._data,
-//     cookies,
-//   };
-// });
