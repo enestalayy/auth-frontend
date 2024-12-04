@@ -1,5 +1,5 @@
 <script setup>
-const accessToken = useCookie();
+const accessToken = useCookie("accessToken");
 
 console.log("accessToken :>> ", accessToken);
 
